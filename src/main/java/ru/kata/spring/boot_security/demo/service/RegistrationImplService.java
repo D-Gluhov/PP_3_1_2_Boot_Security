@@ -10,7 +10,7 @@ import ru.kata.spring.boot_security.demo.repository.UserRepository;
 
 @Service
 @AllArgsConstructor
-public class ServiceRegistrationImpl {
+public class RegistrationImplService implements RegistationService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;

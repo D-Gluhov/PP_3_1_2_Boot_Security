@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import ru.kata.spring.boot_security.demo.entity.User;
 import ru.kata.spring.boot_security.demo.repository.UserRepository;
 
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class UserServiceImpl implements UserDetailsService {
+public class UserImplService implements UserDetailsService, UserService {
 
     private final UserRepository userRepository;
 
@@ -44,5 +45,14 @@ public class UserServiceImpl implements UserDetailsService {
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException(username));
 
+    }
+
+    @Transactional
+    public void validateUserId(Integer id, Model model) {
+        if (id != null) {
+            model.addAttribute("user", findById(id));
+        } else {
+            model.addAttribute("user", new User());
+        }
     }
 }

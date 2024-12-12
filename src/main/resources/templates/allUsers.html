@@ -16,7 +16,7 @@
         <td th:utext="${user.firstName}">first_name</td>
         <td th:utext="${user.age}">age</td>
         <td>
-            <button th:onclick="location.href='http://localhost:8080/admin/users/new?id=[[${user.id}]]'">
+            <button th:onclick="location.href='http://localhost:8080/admin/users/info?id=[[${user.id}]]'">
                 Edit
             </button>
             <form th:action="@{/admin/users/delete}" method="post" style="display: inline-block;">
@@ -26,7 +26,7 @@
         </td>
     </tr>
 </table>
-<button th:onclick="location.href='http://localhost:8080/admin/users/new'">
+<button th:onclick="location.href='http://localhost:8080/admin/users/info'">
     Add
 </button>
 <br><br>

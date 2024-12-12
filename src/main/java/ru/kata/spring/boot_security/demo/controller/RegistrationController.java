@@ -7,13 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.kata.spring.boot_security.demo.entity.User;
-import ru.kata.spring.boot_security.demo.service.ServiceRegistrationImpl;
+import ru.kata.spring.boot_security.demo.service.RegistationService;
+import ru.kata.spring.boot_security.demo.service.RegistrationImplService;
 
 @Controller
 @AllArgsConstructor
 public class RegistrationController {
 
-    private final ServiceRegistrationImpl serviceRegistration;
+    private final RegistationService serviceRegistration;
 
     @GetMapping("/registration")
     public String registrationNewUser(Model model) {
